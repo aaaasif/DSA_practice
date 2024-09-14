@@ -15,5 +15,6 @@ printf("%3d %3d\n", sizeof(c), sizeof(char));
 printf("%3d %3d\n", sizeof(s), sizeof(char[512]));
 printf("%3d %3d\n", sizeof(i), sizeof(short));
 printf("%3d %3d\n", sizeof(n), sizeof(short[64]));
+printf("%3d %3d\n", sizeof(n), sizeof(short[256]));
 }
 
