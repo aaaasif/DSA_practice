@@ -24,7 +24,7 @@ void printIEEE754(float number) {
     // Print the 32-bit binary
     std::cout << "IEEE 754 encoding: " << std::bitset<32>(value.bits) << std::endl;
 
-    // Print the hexadecimal representation
+    // Print the hexadecimal
     std::cout << "Hexadecimal: 0x" << std::hex << value.bits << std::endl;
 }
 
