@@ -15,10 +15,10 @@ void printIEEE754(float number) {
     // Print  bit 1 bit
     std::cout << "Sign bit: " << ((value.bits >> 31) & 1) << std::endl;
 
-    // Print the exponent 8 bits
+    // Print the 8 bits
     std::cout << "Exponent: " << std::bitset<8>((value.bits >> 23) & 0xFF) << std::endl;
 
-    // Print the mantissa (23 bits)
+    // Print the 23 bits
     std::cout << "Mantissa: " << std::bitset<23>(value.bits & 0x7FFFFF) << std::endl;
 
     // Print the full 32-bit binary representation
