@@ -1,11 +1,10 @@
 #include <iostream>
 #include <iomanip>
 #include <bitset>
-#include <cstring>  // For memcpy
+#include <cstring> 
 
-// Function to print the IEEE 754 encoding of a float
 void printIEEE754(float number) {
-    // Create a union to access the bits of the float
+    
     union {
         float f;
         uint32_t bits;
@@ -13,10 +12,10 @@ void printIEEE754(float number) {
 
     value.f = number;
 
-    // Print the sign bit (1 bit)
+    // Print  bit 1 bit
     std::cout << "Sign bit: " << ((value.bits >> 31) & 1) << std::endl;
 
-    // Print the exponent (8 bits)
+    // Print the exponent 8 bits
     std::cout << "Exponent: " << std::bitset<8>((value.bits >> 23) & 0xFF) << std::endl;
 
     // Print the mantissa (23 bits)
@@ -30,5 +29,16 @@ void printIEEE754(float number) {
 }
 
 int main() {
-   
+    float num1 = 56.8;
+    float num2 = -56.8;
+
+    std::cout << "Encoding of 56.8:" << std::endl;
+    printIEEE754(num1);
+
+    std::cout << std::endl;
+
+    std::cout << "Encoding of -56.8:" << std::endl;
+    printIEEE754(num2);
+
+    return 0;
 }
