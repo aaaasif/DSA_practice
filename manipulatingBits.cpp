@@ -46,3 +46,10 @@ int bitXor(int x, int y) {
     /*uses simple logic gate computation to detemine XOR gate with NOT OR and AND*/
     return ((x & ~y) | (~x & y));
 }
+
+int getByte(int x, int n) {
+    /* shifts by 8 times the number given then extracts the bytes by anding them with ff which is 1111
+    1111 */
+
+    return (x & (0xff << (8 * n)));
+}
