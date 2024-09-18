@@ -10,9 +10,6 @@ info_struct info =
    "2022521460130",
 };
 
-#if 0
-
-#endif
 
 
 int bitAnd(int x, int y) {
