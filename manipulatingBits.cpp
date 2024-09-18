@@ -30,3 +30,8 @@ int isZero(int x) {
     return !(x | 0);  
 }
 
+int minusOne(void) {
+    /*return not 0 because in 2nd compliment not 0 is (1 sign bit)111 which is -1*/
+    return ~0;
+}
+
