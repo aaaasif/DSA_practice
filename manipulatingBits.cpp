@@ -14,6 +14,7 @@ info_struct info =
 
 #endif
 
+
 int bitAnd(int x, int y) {
     /*create the AND gate using NOT and OR gate*/
     return ~((~x) | (~y));
