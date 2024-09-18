@@ -13,3 +13,9 @@ info_struct info =
 #if 0
 
 #endif
+
+int bitAnd(int x, int y) {
+
+  return 2;
+
+}
