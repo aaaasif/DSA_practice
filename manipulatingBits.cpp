@@ -15,7 +15,18 @@ info_struct info =
 #endif
 
 int bitAnd(int x, int y) {
-
-  return 2;
-
+    /*create the AND gate using NOT and OR gate*/
+    return ~((~x) | (~y));
 }
+
+int bitOr(int x, int y) {
+    /*create the OR gate using NOT and AND*/
+    return ~((~x) & (~y));
+}
+
+int isZero(int x) {
+    /*exploite the OR gate to determine if a int is 0 or not*/
+
+    return !(x | 0);  
+}
+
