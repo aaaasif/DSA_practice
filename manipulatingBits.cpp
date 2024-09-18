@@ -35,3 +35,10 @@ int minusOne(void) {
     return ~0;
 }
 
+int tmax(void) {
+    /* /*we take the number 1 and shift it to the left 31 positions
+     which results in a bit string that is 11111...1111*/
+    return (1 << 31);
+
+}
+
