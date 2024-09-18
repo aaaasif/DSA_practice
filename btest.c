@@ -29,6 +29,7 @@
 #include "getopt.h"
 
 
+
 /* Globals defined in other modules */
 extern info_struct info;    /* defined in bits.c */
 extern test_rec test_set[]; /* defined in decl.c */
