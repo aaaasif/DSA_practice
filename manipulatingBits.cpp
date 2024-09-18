@@ -42,3 +42,7 @@ int tmax(void) {
 
 }
 
+int bitXor(int x, int y) {
+    /*uses simple logic gate computation to detemine XOR gate with NOT OR and AND*/
+    return ((x & ~y) | (~x & y));
+}
