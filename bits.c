@@ -14,9 +14,9 @@
 info_struct info =
 {
    /* Replace with your full name */
-   "",
+   "Abdullah Al Asif",
    /* Replace with your login ID */
-   "",
+   "2022521460130",
 };
 
 #if 0
@@ -114,14 +114,9 @@ NOTES AND HINTS:
  */
 int bitAnd(int x, int y) {
 
-  return 2;
+  return ~(~x|~y);
 
 }
-
-
-
-
-
 
 /*
  * bitOr - x|y using only ~ and &
@@ -132,13 +127,9 @@ int bitAnd(int x, int y) {
  */
 int bitOr(int x, int y) {
 
-  return 2;
+ return ~((~x) & (~y)) ;
 
 }
-
-
-
-
 
 
 /*
@@ -150,13 +141,9 @@ int bitOr(int x, int y) {
  */
 int isZero(int x) {
 
-  return 2;
+  return !x;
 
 }
-
-
-
-
 
 
 /*
@@ -167,13 +154,9 @@ int isZero(int x) {
  */
 int minusOne(void) {
 
-  return 2;
+  return ~0;
 
 }
-
-
-
-
 
 
 /*
@@ -184,14 +167,9 @@ int minusOne(void) {
  */
 int tmax(void) {
 
-  return 2;
+  return ~(1 << 31);
 
 }
-
-
-
-
-
 
 
 /*
@@ -203,13 +181,9 @@ int tmax(void) {
  */
 int bitXor(int x, int y) {
 
-  return 2;
+  return ~(~(x &~y)&~(~x&y));
 
 }
-
-
-
-
 
 
 /*
@@ -222,13 +196,9 @@ int bitXor(int x, int y) {
  */
 int getByte(int x, int n) {
 
-  return 2;
+ return (x >> (n << 3)) & 0xFF;
 
 }
-
-
-
-
 
 
 /*
@@ -240,13 +210,9 @@ int getByte(int x, int n) {
  */
 int isEqual(int x, int y) {
 
-  return 2;
+  return  !(x ^ y);
 
 }
-
-
-
-
 
 
 /*
@@ -258,13 +224,9 @@ int isEqual(int x, int y) {
  */
 int negate(int x) {
 
-  return 2;
+  return ~x + 1;
 
 }
-
-
-
-
 
 
 /*
@@ -272,13 +234,12 @@ int negate(int x) {
  *   Example: isPositive(-1) = 0.
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 8
- *   Rating: 3
+ *   Rating: 3+
  */
 int isPositive(int x) {
 
-  return 2;
+ 	return !(x >> 31) & !!x;
 
 }
-
 
 

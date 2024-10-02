@@ -51,3 +51,15 @@ int getByte(int x, int n) {
 
     return (x & (0xff << (8 * n)));
 }
+
+int isEqual(int x, int y) {
+    return !(x ^ y);
+}
+
+int negate(int x) {
+    return ~x + 1;
+}
+
+int isPositive(int x) {
+    return !(x >> 31) & !!x;
+}
