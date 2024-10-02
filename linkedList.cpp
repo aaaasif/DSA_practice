@@ -1,25 +1,35 @@
-ListNode* mergeTwoListsIterative(ListNode* l1, ListNode* l2) {
+int main() {
+    // Create first sorted list: 1 -> 4 -> 7 -> 9 -> 10
+    ListNode* l1 = new ListNode(1);
+    l1->next = new ListNode(4);
+    l1->next->next = new ListNode(7);
+    l1->next->next->next = new ListNode(9);
+    l1->next->next->next->next = new ListNode(10);
 
-    ListNode dummy(0);
-    ListNode* current = &dummy;
-    while (l1 != nullptr && l2 != nullptr) {
+    // Create second sorted list: 5 -> 6 -> 8
+    ListNode* l2 = new ListNode(5);
+    l2->next = new ListNode(6);
+    l2->next->next = new ListNode(8);
 
-        if (l1->val <= l2->val) {
-            current->next = l1;
-            l1 = l1->next;
-        } else {
-            current->next = l2;
-            l2 = l2->next;
-        }
-        current = current->next;
-    }
+    // Iterative approach
+    cout << "Merged List (Iterative): ";
+    ListNode* mergedListIterative = mergeTwoListsIterative(l1, l2);
+    printList(mergedListIterative);
 
+    // Recursive approach (recreate the lists because they were modified by the iterative approach)
+    l1 = new ListNode(1);
+    l1->next = new ListNode(4);
+    l1->next->next = new ListNode(7);
+    l1->next->next->next = new ListNode(9);
+    l1->next->next->next->next = new ListNode(10);
 
-    if (l1 != nullptr) {
-        current->next = l1;
-    } else {
-        current->next = l2;
-    }
+    l2 = new ListNode(5);
+    l2->next = new ListNode(6);
+    l2->next->next = new ListNode(8);
 
-    return dummy.next;
+    cout << "Merged List (Recursive): ";
+    ListNode* mergedListRecursive = mergeTwoListsRecursive(l1, l2);
+    printList(mergedListRecursive);
+
+    return 0;
 }
