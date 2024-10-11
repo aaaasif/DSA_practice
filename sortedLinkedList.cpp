@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Definition for singly-linked list.
 struct ListNode {
     int val;
     ListNode *next;
     ListNode(int x) : val(x), next(nullptr) {}
 };
 
-// Modified function to merge two lists iteratively
 ListNode* mergeSortedLists(ListNode* list1, ListNode* list2) {
     ListNode* placeholder = new ListNode(-1);
     ListNode* current = placeholder;
@@ -24,11 +22,10 @@ ListNode* mergeSortedLists(ListNode* list1, ListNode* list2) {
         current = current->next;
     }
 
-    current->next = (list1 != nullptr) ? list1 : list2;  // Attach any remaining nodes
-    return placeholder->next;  // Return the merged list (skipping the placeholder)
+    current->next = (list1 != nullptr) ? list1 : list2;  
+    return placeholder->next;  
 }
 
-// Helper function to print a list
 void printList(ListNode* node) {
     while (node != nullptr) {
         cout << node->val;
@@ -38,7 +35,6 @@ void printList(ListNode* node) {
     cout << endl;
 }
 
-// Helper function to create a list from an array
 ListNode* createList(const int arr[], int size) {
     if (size == 0) return nullptr;
     ListNode* head = new ListNode(arr[0]);
@@ -51,7 +47,7 @@ ListNode* createList(const int arr[], int size) {
 }
 
 int main() {
-    // Example values
+
     int arr1[] = {1, 4, 7, 9, 10};
     int arr2[] = {5, 6, 8};
     ListNode* list1 = createList(arr1, 5);
@@ -62,7 +58,7 @@ int main() {
     cout << "List 2: ";
     printList(list2);
 
-    // Merge using the modified function
+
     ListNode* mergedList = mergeSortedLists(list1, list2);
     cout << "\nMerged List: ";
     printList(mergedList);
