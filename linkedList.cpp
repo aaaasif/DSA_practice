@@ -29,7 +29,9 @@ int main() {
 
     cout << "Merged List (Recursive): ";
     ListNode* mergedListRecursive = mergeTwoListsRecursive(l1, l2);
-    printList(mergedListRecursive);
+    printList(
+        
+    );
 
     return 0;
 }
