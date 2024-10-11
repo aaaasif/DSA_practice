@@ -2,7 +2,7 @@
 using namespace std;
 
 
-bool checkPalindromeWithStack(const string& str) {
+bool checkPalindromeWithStack(const string& str) 
     stack<char> charStack;
     for (char ch : str) {
         charStack.push(ch);
