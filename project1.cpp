@@ -20,54 +20,48 @@ int findAndDisplayPeaks(vector<int>& arr, int n) {
             if (peakCount > 0) {
                 cout << " -> "; // Arrow between peak numbers
             }
-            cout << arr[i]; // Current element is a peak
-            peakCount++; // Increment the number of peaks
+            cout << arr[i]; 
+            peakCount++; 
         }
     }
 
     // Check the last element
     if (n > 1 && arr[n - 1] >= arr[n - 2]) {
         if (peakCount > 0) {
-            cout << " -> "; // Arrow between peak numbers
+            cout << " -> ";
         }
-        cout << arr[n - 1]; // Last element is a peak
-        peakCount++; // Count the peak
+        cout << arr[n - 1];
+        peakCount++;
     }
 
     cout << endl;
-    return peakCount; // Return the total number of peaks
+    return peakCount;
 }
 
 int main() {
-    int n; // Variable to store the length of the array
-
-    // Input the length of the array
+    int n;
     cout << "What is the size of your list? " << endl;
     cin >> n;
 
-    // Ensure the length is positive
     if (n <= 0) {
         cout << "Invalid length!" << endl;
-        return 0; // Exit if the length is invalid
+        return 0;
     }
 
-    vector<int> arr(n); // Declare a vector to store the array elements
+    vector<int> arr(n);
 
     // Input the array elements
     cout << "Enter values of the list. You have to enter " << n << " values." << endl;
     for (int i = 0; i < n; i++) {
-        cin >> arr[i]; // Reading input for the array
+        cin >> arr[i];
     }
 
-    // Display all the list values
     cout << endl;
     for (int i = 0; i < n; i++) {
-        if (i > 0) cout << " -> "; // Add arrows between elements
-        cout << arr[i]; // Print the element
+        if (i > 0) cout << " -> ";
+        cout << arr[i];
     }
     cout << endl;
-
-    // Find and display the peaks, and count how many peaks are found
     int numberOfPeaks = findAndDisplayPeaks(arr, n);
     
     // Output the number of peaks found
@@ -77,5 +71,5 @@ int main() {
         cout << "There are " << numberOfPeaks << " peaks in this list." << endl;
     }
 
-    return 0; // Terminate the program successfully
+    return 0;
 }
