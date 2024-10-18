@@ -3,9 +3,9 @@
 #include <stack>
 using namespace std;
 
-// Function to find a peak element
+// Function to find a peak element in the array
 int findPeak(vector<int>& arr, int n) {
-    stack<int> peaks;
+    stack<int> peaks; // Stack to store potential peaks
 
     // Edge case: check if the first or last element is a peak
     if (n == 1 || arr[0] >= arr[1]) {
@@ -22,27 +22,41 @@ int findPeak(vector<int>& arr, int n) {
         }
     }
 
-    // Return any one peak position
+    // Return any one peak position from the stack
     if (!peaks.empty()) {
-        return peaks.top(); // Return the top element of the stack
+        return peaks.top(); // Return the top peak index from the stack
     }
-    return -1; // If no peak is found (this should never happen with given constraints)
+    return -1; // If no peak is found (this should never happen in most valid cases)
 }
 
 int main() {
-    // Example test cases
-    vector<vector<int>> testCases = {
-        {4, 3, 9, 10, 14, 8, 7, 2, 5, 6},
-        {1, 3, 20, 4, 1, 0},
-        {10, 20, 15, 2, 23, 90, 67}
-    };
+    int n; // Variable to store the length of the array
 
-    // Running the algorithm for each test case
-    for (int i = 0; i < testCases.size(); i++) {
-        int n = testCases[i].size();
-        int peakIndex = findPeak(testCases[i], n);
-        cout << "Peak at index " << peakIndex << " with value " << testCases[i][peakIndex] << endl;
+    // Input the length of the array
+    cout << "Enter the length of the array (n): ";
+    cin >> n;
+
+    // Ensure the length is positive
+    if (n <= 0) {
+        cout << "Invalid length!" << endl;
+        return 0; // Exit if the length is invalid
     }
 
-    return 0;
+    vector<int> arr(n); // Declare a vector to store the array elements
+
+    // Input the array elements
+    cout << "Enter " << n << " integers: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i]; // Reading input for the array
+    }
+
+    // Find the peak and display the result
+    int peakIndex = findPeak(arr, n);
+    if (peakIndex != -1) {
+        cout << "Peak found at index " << peakIndex << " with value " << arr[peakIndex] << endl;
+    } else {
+        cout << "No peak found!" << endl;
+    }
+
+    return 0; // Terminate the program successfully
 }
