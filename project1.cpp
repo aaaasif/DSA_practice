@@ -1,27 +1,40 @@
 #include <iostream>
 #include <vector>
-#include <stack>
 using namespace std;
 
-// Function to find the number of peak elements in the array
-int countPeaks(vector<int>& arr, int n) {
+// Function to find and display the peaks in the array and count their occurrences
+int findAndDisplayPeaks(vector<int>& arr, int n) {
     int peakCount = 0; // Variable to count the number of peaks
 
-    // Edge case: check if the first or last element is a peak
+    cout << "The peak is ";
+
+    // Check the first element
     if (n == 1 || arr[0] >= arr[1]) {
-        peakCount++; // First element is a peak
-    }
-    if (n > 1 && arr[n - 1] >= arr[n - 2]) {
-        peakCount++; // Last element is a peak
+        cout << arr[0]; // First element is a peak
+        peakCount++; // Count the peak
     }
 
     // Traverse the array and check for peaks
     for (int i = 1; i < n - 1; i++) {
         if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) {
-            peakCount++; // Current element is a peak
+            if (peakCount > 0) {
+                cout << " -> "; // Arrow between peak numbers
+            }
+            cout << arr[i]; // Current element is a peak
+            peakCount++; // Increment the number of peaks
         }
     }
 
+    // Check the last element
+    if (n > 1 && arr[n - 1] >= arr[n - 2]) {
+        if (peakCount > 0) {
+            cout << " -> "; // Arrow between peak numbers
+        }
+        cout << arr[n - 1]; // Last element is a peak
+        peakCount++; // Count the peak
+    }
+
+    cout << endl;
     return peakCount; // Return the total number of peaks
 }
 
@@ -29,7 +42,7 @@ int main() {
     int n; // Variable to store the length of the array
 
     // Input the length of the array
-    cout << "Enter the length of the array (n): ";
+    cout << "What is the size of your list? " << endl;
     cin >> n;
 
     // Ensure the length is positive
@@ -41,14 +54,28 @@ int main() {
     vector<int> arr(n); // Declare a vector to store the array elements
 
     // Input the array elements
-    cout << "Enter " << n << " integers: ";
+    cout << "Enter values of the list. You have to enter " << n << " values." << endl;
     for (int i = 0; i < n; i++) {
         cin >> arr[i]; // Reading input for the array
     }
 
-    // Find the number of peaks and display the result
-    int numberOfPeaks = countPeaks(arr, n);
-    cout << "Number of peaks: " << numberOfPeaks << endl;
+    // Display all the list values
+    cout << endl;
+    for (int i = 0; i < n; i++) {
+        if (i > 0) cout << " -> "; // Add arrows between elements
+        cout << arr[i]; // Print the element
+    }
+    cout << endl;
+
+    // Find and display the peaks, and count how many peaks are found
+    int numberOfPeaks = findAndDisplayPeaks(arr, n);
+    
+    // Output the number of peaks found
+    if (numberOfPeaks == 1) {
+        cout << "There is " << numberOfPeaks << " peak in this list." << endl;
+    } else {
+        cout << "There are " << numberOfPeaks << " peaks in this list." << endl;
+    }
 
     return 0; // Terminate the program successfully
 }
