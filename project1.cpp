@@ -1,14 +1,23 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
+
+// This function finds and prints the peak elements in the array.
+// A peak element is greater than or equal to its neighbors.
+// It returns the count of the peak elements found.
+
 int findAndDisplayPeaks(vector<int>& arr, int n) {
     int peakCount = 0;
 
     cout << "The peak number(s) is/are: ";
+     // Handle the first element separately (boundary case).
+    // It's a peak if it's the only element or greater than its next element.
     if (n == 1 || arr[0] >= arr[1]) {
         cout << arr[0];
         peakCount++;
     }
+        // Loop through the middle elements and check if each is a peak.
     for (int i = 1; i < n - 1; i++) {
         if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) {
             if (peakCount > 0) {
