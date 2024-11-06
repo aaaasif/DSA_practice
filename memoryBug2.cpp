@@ -4,7 +4,7 @@
 
 /* return 1 if str is "1", 0 otherwise */
 int checkIf1(char *str) {
-    char *newstr = malloc(strlen(str) + 1);
+    char *newstr = (char *)malloc(strlen(str) + 1);
     if (newstr == NULL) {
         fprintf(stderr, "Memory allocation failed\n");
         exit(1);
@@ -20,10 +20,15 @@ int checkIf1(char *str) {
 }
 
 int main() {
-    char *strArr[4] = {"1", "2", "3", "4"};
-    int i;
-    for (i = 0; i < 4; i++) {
-        printf("%d\n", checkIf1(strArr[i]));
+    char str[10];
+    printf("Enter a string: ");
+    scanf("%9s", str); // Limit input to avoid buffer overflow
+
+    if (checkIf1(str)) {
+        printf("The string is '1'\n");
+    } else {
+        printf("The string is not '1'\n");
     }
-    return 0;
+
+    return 0; // Add the missing closing brace for main
 }
