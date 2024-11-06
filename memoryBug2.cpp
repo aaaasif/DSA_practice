@@ -3,8 +3,8 @@
 #include <string.h>
 
 /* return 1 if str is "1", 0 otherwise */
-int checkIf1(char *str) {
-    char *newstr = malloc(strlen(str) + 1);
+int checkIf1(const char *str) {
+    char *newstr = (char *)malloc(strlen(str) + 1);
     if (newstr == NULL) {
         fprintf(stderr, "Memory allocation failed\n");
         exit(1);
@@ -20,10 +20,15 @@ int checkIf1(char *str) {
 }
 
 int main() {
-    char *strArr[4] = {"1", "2", "3", "4"};
-    int i;
-    for (i = 0; i < 4; i++) {
-        printf("%d\n", checkIf1(strArr[i]));
+    const char *strArr[4] = {"1", "2", "3", "4"}; // Use const char* for string literals
+
+    for (int i = 0; i < 4; i++) {
+        if (checkIf1(strArr[i])) {
+            printf("The string is '1'\n");
+        } else {
+            printf("The string is not '1'\n");
+        }
     }
+
     return 0;
 }
