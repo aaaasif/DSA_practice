@@ -32,7 +32,7 @@ void mergeArrayIfDifferent(char *results[], char *strA1[], char *strA2[], int si
     }
 }
 
-void printAndFree(int c, char *str) {
+void printAndFree(int c, char *str) {.,
     if (str != NULL) {
         printf("%d: %s\n", c, str);
         free(str); // Free memory after printing
