@@ -54,16 +54,3 @@ int main() {
     return 0;
 }
 
-
-void Test(void)
-{ 
-    char *str = (char *)malloc(100); 
-    strcpy(str, " hello"); 
-    free(str); 
-    if(str != NULL)
-    { 
-        strcpy(str, " world"); 
-        printf(str);
-    }
-}
-
